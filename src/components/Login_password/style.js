@@ -18,7 +18,7 @@ const Styles = StyleSheet.create({
     Container_login_and_registration:{
         flex: 1,
         flexDirection: 'column',
-        justifyContent: 'center',
+        paddingTop: 20,
         alignItems:'center',
         backgroundColor: colors_patterns.green
     },
@@ -32,7 +32,7 @@ const Styles = StyleSheet.create({
     },
     fieldsLogin:{
         width: 350,
-        height: 300,
+        height: 200,
         marginTop: 20,
     },
     controlsField:{
@@ -47,6 +47,10 @@ const Styles = StyleSheet.create({
         top: 15,
         left: 10,
         zIndex: 5,
+    },
+    label_moviment:{
+        fontSize: 10,
+        top: 2,
     },
     inputs: {
         height: 55,

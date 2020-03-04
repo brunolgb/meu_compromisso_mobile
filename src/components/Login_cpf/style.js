@@ -32,7 +32,7 @@ const Styles = StyleSheet.create({
     },
     fieldsLogin:{
         width: 350,
-        height: 300,
+        height: 200,
         marginTop: 20,
     },
     controlsField:{
