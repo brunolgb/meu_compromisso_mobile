@@ -1,8 +1,8 @@
 import React from 'react';
-import Login from './src/components/Login'
+import RouteScreen from './src/components/RouteScreen'
 
 export default function App() {
   return (
-    <Login/>
+    <RouteScreen/>
   );
 }
