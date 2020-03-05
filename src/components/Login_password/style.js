@@ -18,22 +18,21 @@ const Styles = StyleSheet.create({
     Container_login_and_registration:{
         flex: 1,
         flexDirection: 'column',
-        paddingTop: 20,
+        justifyContent: 'center',
         alignItems:'center',
         backgroundColor: colors_patterns.green
     },
     logoIasd:{
-        width: 200,
-        height: 200,
+        width: 150,
+        height: 150,
     },
     logoIasdImage:{
-        width: 200,
-        height: 200
+        width: 150,
+        height: 150
     },
     fieldsLogin:{
-        width: 350,
-        height: 200,
-        marginTop: 20,
+        width: 330,
+        marginTop: 40,
     },
     controlsField:{
         marginVertical: 15,
@@ -44,13 +43,14 @@ const Styles = StyleSheet.create({
         fontWeight: 'bold',
         color: colors_patterns.green,
         position: 'absolute',
-        top: 15,
+        top: 2,
         left: 10,
+        opacity: 0,
+        fontSize: 10,
         zIndex: 5,
     },
     label_moviment:{
-        fontSize: 10,
-        top: 2,
+        opacity: 1,
     },
     inputs: {
         height: 55,
@@ -74,6 +74,7 @@ const Styles = StyleSheet.create({
     },
     linksLogin:{
         height: 50,
+        marginTop: 20,
         alignItems: 'center',
         justifyContent: 'center'
     },

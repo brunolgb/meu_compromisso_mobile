@@ -32,9 +32,11 @@ function Login_password({route, navigation})
             
             <View style={Styles.fieldsLogin}>
                 <View style={Styles.controlsField}>
-                    <Text style={[Styles.label, movLabel ? Styles.label_moviment : Styles.label]}>Senha</Text>
+                <Text style={[Styles.label, password ? Styles.label_moviment : Styles.label]}>Senha</Text>  
                     <TextInput
                     style={Styles.inputs}
+                    placeholder="Senha"
+                    placeholderTextColor='rgb(70,157,40)'
                     onChangeText={contentPassword => {
                         setPassword(contentPassword);
                     }}
@@ -112,6 +114,11 @@ function Login_password({route, navigation})
             <View>
                 <TouchableOpacity style={Styles.linksLogin}>
                     <Text style={Styles.LinksLoginText}>Esqueci minha senha!</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={Styles.linksLogin} onPress={() => {
+                    navigation.goBack()
+                }}>
+                    <Text style={Styles.LinksLoginText}>Digitar outro CPF</Text>
                 </TouchableOpacity>
             </View>            
         </KeyboardAvoidingView>
