@@ -11,16 +11,13 @@ const colors_patterns = {
 }
 
 const Styles = StyleSheet.create({
-    container:{
-        flex: 1,
-        backgroundColor: colors_patterns.green,
+    background:{
+        backgroundColor: colors_patterns.green
     },
     Container_login_and_registration:{
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'center',
         alignItems:'center',
-        backgroundColor: colors_patterns.green
+        backgroundColor: colors_patterns.green,
+        paddingTop: 20,
     },
     logoIasd:{
         width: 150,
@@ -72,9 +69,11 @@ const Styles = StyleSheet.create({
     TextSubmit:{
         color: colors_patterns.white
     },
+    controlLinks:{
+        marginVertical: 40,
+    },
     linksLogin:{
         height: 50,
-        marginTop: 40,
         alignItems: 'center',
         justifyContent: 'center'
     },
