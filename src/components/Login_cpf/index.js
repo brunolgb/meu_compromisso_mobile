@@ -13,9 +13,8 @@ import {
 import Styles from './style'
 
 function Login_cpf({ navigation }){
-    const [keysPress, setKeysPress] = React.useState();
+    const [keysPress_cpf, setKeysPress_cpf] = React.useState();
     const [cpf, setCpf] = React.useState();
-    const [movLabel, setMovLabel] = React.useState(false);
     const [requestValidCPF, setRequestValidCPF] = React.useState("Próximo");
 
     return(
@@ -29,17 +28,16 @@ function Login_cpf({ navigation }){
                 />
             </View>
             <View style={Styles.fieldsLogin}>
-                <View style={Styles.controlsField}>
-                    <Text style={[Styles.label, movLabel ? Styles_moviment.label_cpf : Styles.label]}>CPF</Text>  
+            <View style={Styles.controlsField}>
+                    <Text style={[Styles.label, cpf ? Styles.label_moviment : Styles.label]}>CPF</Text>  
                     <TextInput
                     style={Styles.inputs}
+                    placeholder="CPF"
+                    placeholderTextColor='rgb(70,157,40)'
                     onChangeText={contentCPF => {
-                        setCpf(replaceForMask_CPF(contentCPF, keysPress));
+                        setCpf(replaceForMask_CPF(contentCPF, keysPress_cpf));
                     }}
-                    onFocus={() => {
-                        setMovLabel(true)
-                    }}
-                    onKeyPress={keyPressed=>{ setKeysPress(keyPressed.nativeEvent.key)}}
+                    onKeyPress={keyPressed=>{ setKeysPress_cpf(keyPressed.nativeEvent.key)}}
                     keyboardType="numeric"
                     maxLength={14}
                     value={cpf}
@@ -80,8 +78,8 @@ function Login_cpf({ navigation }){
                     </TouchableOpacity>
                 </View>
             </View>
-            <View>
-                <TouchableOpacity style={Styles.linksLogin}>
+            <View style={Styles.controlLinks}>
+                <TouchableOpacity style={Styles.linksLogin} onPress={() => {navigation.navigate("Register_member_pessoal")}}>
                     <Text style={Styles.LinksLoginText}>Cadastrar-se</Text>
                 </TouchableOpacity>
             </View>            
