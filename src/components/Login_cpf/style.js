@@ -80,20 +80,7 @@ const Styles = StyleSheet.create({
     },
     LinksLoginText:{
         color: colors_patterns.white,
-    },
-    boxPasswordIcon:{
-        width: 50,
-        height: 50,
-        position: "absolute",
-        right: 0,
-        justifyContent: 'center',
-        alignItems: 'center',
-
-    },
-    passwordIcon:{
-        width: 40, 
-        height: 40,
-    },
+    }
 })
 
 export default Styles;

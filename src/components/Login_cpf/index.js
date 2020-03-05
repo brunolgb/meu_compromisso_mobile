@@ -87,11 +87,4 @@ function Login_cpf({ navigation }){
     )
 }
 
-const Styles_moviment = StyleSheet.create({
-    label_cpf:{
-        fontSize: 10,
-        top: 2,
-    },
-})
-
 export default Login_cpf;
