@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Login_cpf from '../Login_cpf'
 import Login_password from '../Login_password'
 import RegisterMember_pessoal from '../RegisterMember_pessoal'
+import RegisterMember_address from '../RegisterMember_address'
 
 const Stack = createStackNavigator();
 
@@ -25,6 +26,10 @@ function RouteScreens ()
                 <Stack.Screen
                     name="Register_member_pessoal"
                     component={RegisterMember_pessoal}
+                />
+                <Stack.Screen
+                    name="Register_member_address"
+                    component={RegisterMember_address}
                 />
             </Stack.Navigator>
         </NavigationContainer>
