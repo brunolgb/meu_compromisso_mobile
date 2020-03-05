@@ -57,5 +57,26 @@ module.exports = {
             }
         }
         return final;
+    },
+    valida_birth(birth)
+    {
+        const regex = /\([0-9]{2}\) [0-9]{5}\-[0-9]{4}/
+        return regex.test(birth);
+    },
+    replaceForMask_birth(value, keypress)
+    {
+        let final = value;
+        if(keypress != "Backspace")
+        {
+            if(value.length >= 3 && value.length <= 4)
+            {
+                final = `${value.substring(0, 2)}/${value.substring(2, value.length)}`;
+            }
+            else if(value.length >= 6 && value.length <= 7)
+            {
+                final = `${value.substring(0, 5)}/${value.substring(5, value.length)}`;
+            }
+        }
+        return final;
     }
 }
