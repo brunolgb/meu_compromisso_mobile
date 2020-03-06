@@ -7,6 +7,7 @@ import Login_cpf from '../Login_cpf'
 import Login_password from '../Login_password'
 import RegisterMember_pessoal from '../RegisterMember_pessoal'
 import RegisterMember_address from '../RegisterMember_address'
+import RegisterMember_access from '../RegisterMember_access'
 
 const Stack = createStackNavigator();
 
@@ -30,6 +31,10 @@ function RouteScreens ()
                 <Stack.Screen
                     name="Register_member_address"
                     component={RegisterMember_address}
+                />
+                <Stack.Screen
+                    name="Register_member_access"
+                    component={RegisterMember_access}
                 />
             </Stack.Navigator>
         </NavigationContainer>
