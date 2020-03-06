@@ -5,15 +5,17 @@ import {
     TextInput,
     TouchableOpacity,
     KeyboardAvoidingView,
-    Dimensions,
     ScrollView,
 } from 'react-native';
-import Axios from 'axios';
+import api from '../../api'
+import Axios from 'axios'
+import { replaceForMask_cep } from '../../utils/Masks'
+import DateHandling from '../../utils/DateHandling'
 
 import Styles from './style'
 import HeaderRegister from '../HeaderRegister';
 
-function RegisterMember_address({ navigation }){
+function RegisterMember_address({ route, navigation }){
     const [keysPress_cep, setKeysPress_cep] = React.useState();
     const [cep, setCep] = React.useState();
     const [address, setAddress] = React.useState();
@@ -22,6 +24,9 @@ function RegisterMember_address({ navigation }){
     const [city, setCity] = React.useState();
     const [state, setState] = React.useState();
     const [country, setCountry] = React.useState("Brasil");
+
+    const [btnSubmit, setBtnSubmit] = React.useState("Próximo");
+
     return(
         <KeyboardAvoidingView behavior="position" keyboardVerticalOffset={-200}>
         <ScrollView style={[Styles.bakcground]}>
@@ -34,11 +39,10 @@ function RegisterMember_address({ navigation }){
                         style={Styles.inputs}
                         placeholder="CEP"
                         placeholderTextColor='rgb(70,157,40)'
-                        onChangeText={contentName => {
-                            setCep(contentName);
+                        onChangeText={content => {
+                            setCep(replaceForMask_cep(content, keysPress_cep));
                         }}
                         onBlur={() => {
-                            console.log(cep)
                             if(cep != undefined)
                             {
                                 if(cep.length == 9)
@@ -60,8 +64,9 @@ function RegisterMember_address({ navigation }){
                                 }
                             }
                         }}
+                        onKeyPress={keyPressed=>{ setKeysPress_cep(keyPressed.nativeEvent.key)}}
                         keyboardType="numeric"
-                        maxLength={255}
+                        maxLength={9}
                         value={cep}
                         />
                     </View>
@@ -151,9 +156,66 @@ function RegisterMember_address({ navigation }){
                         </View>
                     </View>
                     <View style={Styles.controlsField}>
-                        <TouchableOpacity style={Styles.submit}>
+                        <TouchableOpacity style={Styles.submit} onPress={() => {
+                            setBtnSubmit("Salvando dados")
+                            const {
+                                complete_name,
+                                contact_phone,
+                                cpf,
+                                date_of_birth,
+                                mail
+                            } = route.params;
+                            const birth = DateHandling.replacetoAmeric(date_of_birth)
+
+                            api.post("/member/add", {
+                                complete_name: complete_name,
+                                cpf: cpf,
+                                date_of_birth: birth,
+                                contact_phone: contact_phone,
+                                mail: mail,
+                                zipcode: cep,
+                                address: address,
+                                neightborhood: neightborhood,
+                                references_address: referencesAddress,
+                                city: city,
+                                state: state,
+                                country: country
+                            })
+                            .then(response => {
+                                if(response.data.status == "ok")
+                                {
+                                    setBtnSubmit("Redirecionando")
+                                    api.post("validation/cpf", {
+                                        cpf: cpf
+                                    })
+                                    .then(res_idMember => {
+                                        
+                                        if(res_idMember.data.status != undefined)
+                                        {
+                                            navigation.push("Register_member_access", {
+                                                idMember: res_idMember.data.member
+                                            })
+                                        }
+                                        else{
+                                            setBtnSubmit("Erro ao redirecionar")
+                                            alert(res_idMember.data.message)
+                                        }
+                                    })
+                                    .catch(error => {
+                                        console.log("Erro ao cadastrar")
+                                    })
+                                }
+                                else{
+                                    setBtnSubmit("Erro ao cadastrar")
+                                    console.log(response.data)
+                                }
+                            })
+                            .catch(error_cad => {
+                                console.log(error_cad)
+                            })
+                        }}>
                             <Text style={Styles.TextSubmit}>
-                                Próximo
+                                {btnSubmit}
                             </Text>
                         </TouchableOpacity>
                     </View>
