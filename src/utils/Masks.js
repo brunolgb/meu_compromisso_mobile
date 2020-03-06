@@ -78,5 +78,17 @@ module.exports = {
             }
         }
         return final;
+    },
+    replaceForMask_cep(value, keypress)
+    {
+        let final = value;
+        if(keypress != "Backspace")
+        {
+            if(value.length >= 5 && value.length <= 6)
+            {
+                final = `${value.substring(0, 5)}-${value.substring(5, value.length)}`;
+            }
+        }
+        return final;
     }
 }
