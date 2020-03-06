@@ -116,7 +116,13 @@ function RegisterMember_pessoal({ navigation }){
                         <TouchableOpacity
                             style={Styles.submit}
                             onPress={() => {
-                                navigation.push("Register_member_address");
+                                navigation.push("Register_member_address",{
+                                    complete_name: name,
+                                    cpf: cpf,
+                                    date_of_birth: birth,
+                                    contact_phone: phone,
+                                    mail: mail 
+                                });
                             }}
                         >
                             <Text style={Styles.TextSubmit}>
