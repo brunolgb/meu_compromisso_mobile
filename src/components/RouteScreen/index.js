@@ -1,7 +1,8 @@
 import * as React from 'react';
+import {View, Image} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 
 //components
 import Login from '../Login'
@@ -10,19 +11,48 @@ import RegisterMember_address from '../RegisterMember_address'
 import RegisterMember_access from '../RegisterMember_access'
 import Home from '../Home'
 import Scale from '../Scale'
+import Profile from '../Profile'
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
+function CustomMenuDrop(props)
+{
+    return(
+        <DrawerContentScrollView {...props}>
+            <View style={{
+                flex:1,
+                alignItems:"center",
+                marginBottom: 20,
+                marginTop: 30,
+                }}>
+                <Image source={require('../../assets/logoIgrejaGreen.png')} style={{width: 100, height: 100}}/>
+            </View>
+            <DrawerItemList {...props}/>
+        </DrawerContentScrollView>
+    )
+}
 function menuDrop()
 {
     return(
-        <Drawer.Navigator>
+        <Drawer.Navigator
+            drawerType="slide"
+            hideStatusBar={true}
+            drawerContentOptions={{
+                activeBackgroundColor: "#fff",
+                inactiveTintColor: "#333",
+                activeTintColor: 'rgb(70,157,40)',
+            }}
+            drawerContent={CustomMenuDrop}
+            >
             <Drawer.Screen name="Home" component={Home} options={{
                 title: "Página inicial"
             }}/>
             <Drawer.Screen name="Scale" component={Scale} options={{
                 title: "Escala de Louvor"
+            }}/>
+             <Drawer.Screen name="Profile" component={Profile} options={{
+                title: "Perfil"
             }}/>
             <Drawer.Screen name="Login" component={Login} options={{
                 title: "Sair"
