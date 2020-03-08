@@ -8,12 +8,11 @@ const Style = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: '#222',
         borderRadius: 3,
-        position: "absolute",
-        top: 40,
-        right: 10,
-        zIndex: 10,
         padding: 10,
         overflow: "hidden",
+    },
+    container_mov:{
+        right: 20
     },
     message:{
         color: "#fff",
