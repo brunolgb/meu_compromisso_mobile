@@ -14,7 +14,7 @@ export default function Scale()
         <View style={Styles.container}>
             <HeaderMenu/>
             <View style={Styles.content}>
-                <Text>Leandro</Text>
+                <Text>Escala</Text>
             </View>
         </View>
     )
