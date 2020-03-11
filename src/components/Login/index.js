@@ -1,6 +1,6 @@
-import * as React from 'react';
+import * as React from 'react'
 import api from '../../api'
-import { valida_cpf, replaceForMask_CPF } from '../../utils/Masks';
+import { replaceForMask_CPF } from '../../utils/Masks'
 import {
     View,
     Text,
@@ -13,6 +13,7 @@ import {
 import Styles from './style'
 
 function Login({ navigation }){
+
     const [keysPress_cpf, setKeysPress_cpf] = React.useState();
     const [cpf, setCpf] = React.useState();
 
@@ -101,7 +102,9 @@ function Login({ navigation }){
                                     const { message, status } = response.data
                                     if(status == undefined)
                                     {
-                                        navigation.navigate("Home");
+                                        console.log(response.data[0])
+                                        //insertData(response.data[0], navigation);
+                                        setBtnSubmit("Entrar")
                                     }
                                     else
                                     {
