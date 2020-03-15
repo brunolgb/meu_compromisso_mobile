@@ -1,17 +1,17 @@
-import * as React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Image} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 
 //components
-import Login from '../Login'
-import RegisterMember_pessoal from '../RegisterMember_pessoal'
-import RegisterMember_address from '../RegisterMember_address'
-import RegisterMember_access from '../RegisterMember_access'
-import Home from '../Home'
-import Scale from '../Scale'
-import Profile from '../Profile'
+import Login from '../../screens/Login'
+import RegisterMember_pessoal from '../../screens/RegisterMember_pessoal'
+import RegisterMember_address from '../../screens/RegisterMember_address'
+import RegisterMember_access from '../../screens/RegisterMember_access'
+import Home from '../../screens/Home'
+import Scale from '../../screens/Scale'
+import Profile from '../../screens/Profile'
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -90,4 +90,6 @@ function RouteScreens ()
         </NavigationContainer>
     )
 }
+
+
 export default RouteScreens;

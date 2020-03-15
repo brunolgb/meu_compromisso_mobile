@@ -2,21 +2,14 @@ import {
     StyleSheet
 } from 'react-native';
 
-const colors_patterns = {
-    green: 'rgb(70,157,40)',
-    greenLight: 'rgb(121, 242, 0)',
-    white: '#fff',
-    oragen: 'rgb(240, 158, 0)',
-    black: '#555',
-}
-
+import Colors from '../../styles/colors'
 const Styles = StyleSheet.create({
     background:{
-        backgroundColor: colors_patterns.green
+        backgroundColor: Colors.green
     },
     Container_login_and_registration:{
         alignItems:'center',
-        backgroundColor: colors_patterns.green,
+        backgroundColor: Colors.green,
         paddingTop: 20,
     },
     logoIasd:{
@@ -52,7 +45,7 @@ const Styles = StyleSheet.create({
     },
     label:{
         fontWeight: 'bold',
-        color: colors_patterns.green,
+        color: Colors.green,
         position: 'absolute',
         top: 2,
         left: 10,
@@ -65,28 +58,28 @@ const Styles = StyleSheet.create({
     },
     inputs: {
         height: 55,
-        backgroundColor: colors_patterns.white,
+        backgroundColor: Colors.white,
         borderRadius: 3,
         paddingHorizontal: 10,
-        color: colors_patterns.black,
+        color: Colors.black,
         fontWeight: 'bold',
     },
     submit: {
         height: 50,
-        backgroundColor: colors_patterns.green,
-        borderColor: colors_patterns.white,
+        backgroundColor: Colors.green,
+        borderColor: Colors.white,
         borderWidth: 1.2,
         borderRadius: 3,
         alignItems: 'center',
         justifyContent: 'center',
     },
     TextSubmit:{
-        color: colors_patterns.white
+        color: Colors.white
     },
     controlLinks:{
         width: 200,
         marginVertical: 40,
-        backgroundColor: colors_patterns.oragen,
+        backgroundColor: Colors.oragen,
         borderRadius: 5
     },
     linksLogin:{
@@ -95,7 +88,7 @@ const Styles = StyleSheet.create({
         justifyContent: 'center'
     },
     LinksLoginText:{
-        color: colors_patterns.white,
+        color: Colors.white,
     },
     boxPasswordIcon:{
         width: 50,

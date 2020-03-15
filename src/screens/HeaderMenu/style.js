@@ -1,19 +1,13 @@
 import { StyleSheet } from 'react-native';
 
-const colors_patterns = {
-    green: 'rgb(70,157,40)',
-    greenLight: 'rgb(121, 242, 0)',
-    white: '#fff',
-    oragen: 'rgb(240, 158, 0)',
-    black: '#555',
-}
+import Colors from '../../styles/colors'
 
 const Styles = StyleSheet.create({
     nav:{
         flexDirection: "row",
         alignItems: "center",
         height: 90,
-        backgroundColor: colors_patterns.green,
+        backgroundColor: Colors.green,
         paddingTop: 20,
     },
     navChildrenPattern:{

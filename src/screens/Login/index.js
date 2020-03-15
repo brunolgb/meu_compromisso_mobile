@@ -94,16 +94,18 @@ function Login({ navigation }){
                             setBtnSubmit("Verificando");
                             if(cpf != undefined && password != undefined)
                             {
-                                api.post(`/validation`, {
+                                api.post("/validation", {
                                     cpf: cpf,
                                     password_access: password,
                                 })
-                                .then(response => {
+                                .then(async response => {
                                     const { message, status } = response.data
-                                    if(status == undefined)
+                                    if(status === undefined)
                                     {
-                                        console.log(response.data[0])
-                                        //insertData(response.data[0], navigation);
+                                        await navigation.navigate("SessionConfig", {
+                                            member: response.data[0].member,
+                                            privileges_m: response.data[0].privileges_m
+                                        });
                                         setBtnSubmit("Entrar")
                                     }
                                     else
@@ -113,6 +115,7 @@ function Login({ navigation }){
                                     }
                                 })
                                 .catch(error => {
+                                    console.log(error)
                                     Alert.alert("Erro", "Aconteceu algum erro inesperado! Tente novamente!")
                                     setBtnSubmit("Entrar")
                                 })

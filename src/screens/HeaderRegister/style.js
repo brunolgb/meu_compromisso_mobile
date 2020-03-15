@@ -1,12 +1,5 @@
 import { StyleSheet } from 'react-native';
-
-const colors_patterns = {
-    green: 'rgb(70,157,40)',
-    greenLight: 'rgb(121, 242, 0)',
-    white: '#fff',
-    oragen: 'rgb(240, 158, 0)',
-    black: '#555',
-}
+import Colors from '../../styles/colors'
 
 const Style = StyleSheet.create({
     container:{
@@ -27,24 +20,24 @@ const Style = StyleSheet.create({
         justifyContent: 'center',
         borderRadius: 25,
         borderWidth: 1,
-        borderColor: colors_patterns.greenLight,
+        borderColor: Colors.greenLight,
         marginBottom: 12,
     },
     indicatorCircleNumber:{
-        color: colors_patterns.greenLight,
+        color: Colors.greenLight,
         fontWeight: "bold",
     },
     indicatorCircle_actived:{
-        borderColor: colors_patterns.greenLight,
-        backgroundColor: colors_patterns.greenLight,
+        borderColor: Colors.greenLight,
+        backgroundColor: Colors.greenLight,
         marginBottom: 12,
     },
     indicatorCircleNumber_actived:{
-        color: colors_patterns.green,
+        color: Colors.green,
         fontWeight: "bold",
     },
     indicatorText:{
-        color: colors_patterns.white
+        color: Colors.white
     }
 })
 export default Style;
